@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+<div>
+  <div class="menunav">
+      <div class="inner-wrap">
+          <a href="/">Home</a>
+          <a class="active" href="/myrepositories">My Repositories</a>
+          <a href="/recommendations">Recommendations</a>
+      </div>
+  </div>
+  <div class="main-wrapper">
+      <div class="single-page clearfix">
+          <div class="inner-wrap">
+              <h3>My Repositories</h3>
+              <div>
+                  <table>
+                      <tr>
+                          <th>Name</th>
+                          <th>Last Updated Date</th>
+                      </tr>
+                  {% for repository in repositories %}
+                      <tr>
+                      {% if repository.dependencies.all %}
+                          <td><a href="{% url 'repository_detail' repository.id %}">
+                              {{ repository.name|capfirst }}
+                          </a>
+                          </td>
+                          <td>{{ repository.updated_date }}</td>
+                      {% else %}
+                          <td>{{ repository.name|capfirst }}</td>
+                          <td>{{ repository.updated_date }}</td>
+                      {% endif %}
+                  {% endfor %}
+                  </table>
+              </div>
+          </div>
+      </div>
+</div>
+{% endblock %}

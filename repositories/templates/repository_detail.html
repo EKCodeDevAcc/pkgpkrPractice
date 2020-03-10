@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+<div>
+  <div class="menunav">
+      <div class="inner-wrap">
+          <a href="/">Home</a>
+          <a class="active" href="/myrepositories">My Repositories</a>
+          <a href="/recommendations">Recommendations</a>
+      </div>
+  </div>
+  <div class="main-wrapper">
+      <div class="single-page clearfix">
+          <div class="inner-wrap">
+              <h3>{{ repository.name|capfirst }}</h3>
+              <div>
+                  <h6>List of Dependencies</h6>
+                  {% if repository.dependencies.all %}
+                  <ul>
+                      {% for dependency in repository.dependencies.all %}
+                      <li>{{ dependency.name }}</li>
+                      {% endfor %}
+                  </ul>
+                  {% endif %}
+              </div>
+          </div>
+      </div>
+</div>
+{% endblock %}

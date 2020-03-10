@@ -1,0 +1,39 @@
+{% load static %}
+<html lang="en-US">
+    <head>
+        <meta charset="UTF-8">
+        <title>Package Picker - Choose Good Packages, Faster</title>
+        <link rel="stylesheet" id="ample-style-css" href="{% static 'style.css' %}" type="text/css" media="all">
+    </head>
+    <body class="wide">
+        <div id="page" class="hfeed site">
+            <header>
+                <div class="header">
+                    <div class="main-head-wrap inner-wrap clearfix">
+                        <div id="header-logo-image">
+                            <a href="/">
+                                <img src="{% static 'images/logo.png' %}" alt="Package Picker">
+                            </a>
+                        </div>
+                        <div id="header-text" class="">
+                            <h1 id="site-title">
+                                <a href="/" title="Package Picker" rel="home">Package Picker</a>
+                            </h1>
+                            <p>Choose Good Packages, Faster.</p>
+                        </div>
+                        <div>
+                            <button type="button" onclick="location.href='https://google.com'" style="float: right; margin-top: 15px;">Login</button>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <div class="main-wrapper">
+            {% block content %}
+            {% endblock %}
+            </div>
+            <footer id="colophon">
+            </footer>
+        </div>
+    <script src="{% static 'main.js' %}"></script>
+    </body>
+</html>
